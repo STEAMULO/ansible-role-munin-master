@@ -1,0 +1,39 @@
+---
+
+munin_packages:
+  - munin
+  - mailutils
+
+munin_dbdir: /var/lib/munin
+munin_htmldir: /var/www/munin
+munin_logdir: /var/log/munin
+munin_rundir: /var/run/munin
+munin_tmpldir: /etc/munin/templates
+munin_confdir: /etc/munin/munin-conf.d
+munin_dir: /etc/munin
+
+munin_max_processes: 12
+
+# Will be translated into:
+# [host]
+#   address: [name]
+#   [extra.0]
+#   [extra.1]
+#   [...]
+#
+# Note that `name` can be hostname, or group + hostname, for example:
+# [example.com;foo.example.com]
+munin_hosts:
+  - {
+    name: "localhost",
+    address: "127.0.0.1",
+    extra: ["use_node_name yes"]
+  }
+
+munin_alerts: []
+#  - {
+#    name: "JohnDoe",
+#    email: "johndoe@example.com",
+#    subject: "Munin-notification for ${var:group} :: ${var:host}",
+#    level: "warning critical"
+#   }
