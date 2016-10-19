@@ -12,6 +12,10 @@ munin_tmpldir: /etc/munin/templates
 munin_confdir: /etc/munin/munin-conf.d
 munin_dir: /etc/munin
 
+graph_strategy: "cgi"
+cgiurl_graph: "/munin-cgi/munin-cgi-graph"
+
+
 munin_max_processes: 12
 
 # Will be translated into:

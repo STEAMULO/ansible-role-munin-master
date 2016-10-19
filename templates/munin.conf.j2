@@ -9,14 +9,6 @@ rundir  {{ munin_rundir }}
 # Where to look for the HTML templates
 tmpldir  {{ munin_tmpldir }}
 
-# Where to look for the static www files
-#staticdir /etc/munin/static
-
-# temporary cgi files are here. note that it has to be writable by
-# the cgi user (usually nobody or httpd).
-#
-# cgitmpdir @@CGITMPDIR@@
-
 # (Exactly one) directory to include all files from.
 includedir {{ munin_confdir }}
 
@@ -29,7 +21,7 @@ includedir {{ munin_confdir }}
 # documentation.
 # Since 2.0, munin-graph has been rewritten to use the cgi code.
 # It is single threaded *by design* now.
-graph_strategy cron
+graph_strategy {{ graph_strategy }}
 
 # munin-cgi-graph is invoked by the web server up to very many times at the
 # same time.  This is not optimal since it results in high CPU and memory
@@ -39,7 +31,7 @@ graph_strategy cron
 #munin_cgi_graph_jobs 6
 
 # If the automatic CGI url is wrong for your system override it here:
-#cgiurl_graph /munin-cgi/munin-cgi-graph
+cgiurl_graph {{ cgiurl_graph }}
 
 # max_size_x and max_size_y are the max size of images in pixel.
 # Default is 4000. Do not make it too large otherwise RRD might use all
