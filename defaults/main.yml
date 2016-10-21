@@ -34,10 +34,14 @@ munin_hosts:
     extra: ["use_node_name yes"]
   }
 
-munin_alerts: []
+munin_contacts: []
 #  - {
 #    name: "JohnDoe",
 #    email: "johndoe@example.com",
 #    subject: "Munin-notification for ${var:group} :: ${var:host}",
 #    level: "warning critical"
 #   }
+
+
+# list of contacts name sperated by space which receive all alerts
+munin_default_contacts: "no"
