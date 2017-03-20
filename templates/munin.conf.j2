@@ -71,7 +71,11 @@ contacts {{ munin_default_contacts }}
 
 
 {% for contact in munin_contacts %}
-contact.{{ contact.id }}.command mail -s "{{ contact.subject }}" {{ contact.email }}
+{% if 'pagerduty_key' in contact -%}
+    contact.{{ contact.id }}.command {{ munin_pagerduty_install_dir }}/pagerduty_munin.py {{ contact.pagerduty_key }}
+{% else -%}
+    contact.{{ contact.id }}.command mail -s "{{ contact.subject }}" {{ contact.email }}
+{% endif -%}
 contact.{{ contact.id }}.always_send {{ contact.level }}
 {% endfor %}
 

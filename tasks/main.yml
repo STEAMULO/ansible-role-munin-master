@@ -1,5 +1,3 @@
----
-
 - name: Install required packages for munin
   apt: "name={{ item }} state=present update_cache=yes"
   with_items: "{{ munin_packages }}"
@@ -21,6 +19,9 @@
 
 - name: Create munin www directory
   file: path="{{ munin_htmldir }}" owner="munin" group="munin" state=directory
+
+- include: pagerduty_integration.yml
+  when: munin_pagerduty_integration
 
 - name: restart munin-node
   service: name=munin-node state=restarted

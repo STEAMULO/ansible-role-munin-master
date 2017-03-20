@@ -45,3 +45,12 @@ munin_contacts: []
 
 # list of contacts name sperated by space which receive all alerts
 munin_default_contacts: "no"
+
+# enable pagerduty integration
+munin_pagerduty_integration: False
+
+munin_pagerduty_client_url: "https://github.com/samuel/python-pagerduty/archive/v0.2.1.tar.gz"
+
+munin_pagerduty_integration_script_url: "https://gist.githubusercontent.com/samuel/720925/raw/fa3bdc0322ade23530c32b3c7e795d64cd2cc7d2/pagerduty_munin.py"
+
+munin_pagerduty_install_dir: "/usr/local/bin/munin-pagerduty"
